@@ -92,6 +92,7 @@ namespace Oculus.Interaction
 
         protected virtual void FixedUpdate()
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             if (Physics.autoSimulation)
             {
                 UpdateTriggers();
@@ -100,6 +101,7 @@ namespace Oculus.Interaction
             {
                 _skippedPhysics = true;
             }
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         private void UpdateTriggers()

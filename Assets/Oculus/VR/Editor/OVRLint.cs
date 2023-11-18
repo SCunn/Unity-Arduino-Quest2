@@ -506,6 +506,7 @@ public class OVRLint : EditorWindow
         var tier = UnityEngine.Rendering.GraphicsTier.Tier1;
         var tierSettings = UnityEditor.Rendering.EditorGraphicsSettings.GetTierSettings(target, tier);
 
+#pragma warning disable CS0618 // Type or member is obsolete
         if ((tierSettings.renderingPath == RenderingPath.DeferredShading ||
              tierSettings.renderingPath == RenderingPath.DeferredLighting))
         {
@@ -517,6 +518,7 @@ public class OVRLint : EditorWindow
                     UnityEditor.Rendering.EditorGraphicsSettings.SetTierSettings(target, tier, tierSettings);
                 }, null, false, "Use Forward");
         }
+#pragma warning restore CS0618 // Type or member is obsolete
 
         if (PlayerSettings.stereoRenderingPath == StereoRenderingPath.MultiPass)
         {
