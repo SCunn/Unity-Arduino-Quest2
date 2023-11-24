@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// This Script is part of the Asset from Nokobot https://assetstore.unity.com/packages/3d/props/guns/modern-guns-handgun-129821 
+// It handles the shooting mechanism for the Modern Guns: Handgun asset
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,14 +32,22 @@ public class SimpleShoot : MonoBehaviour
             gunAnimator = GetComponentInChildren<Animator>();
     }
 
-    void Update()
-    {
-        //If you want a different input, change it here
-        if (Input.GetButtonDown("Fire1"))
+    // This section is the codes original firing mechanism, It checks if the trigger was pressed
+    /*    void Update()
         {
-            //Calls animation on the gun that has the relevant animation events that will fire
-            gunAnimator.SetTrigger("Fire");
+            //If you want a different input, change it here
+            if (Input.GetButtonDown("Fire1"))
+            {
+                //Calls animation on the gun that has the relevant animation events that will fire
+                gunAnimator.SetTrigger("Fire");
+            }
         }
+    */
+
+    // The StartShoot function will gunAnimator.SetTrigger("Fire"); without checking for if the button is down.  code sourceed from RealaryVR  https://youtu.be/vmxRjbLhmXM?si=9g0xfPjzbN80M8Vs&t=279
+    public void StartShoot()
+    {
+        gunAnimator.SetTrigger("Fire");
     }
 
 

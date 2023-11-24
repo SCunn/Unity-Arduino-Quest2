@@ -62,6 +62,12 @@ public class OVRGrabber : MonoBehaviour
     [SerializeField]
     protected OVRInput.Controller m_controller;
 
+    // New function to call for controller, Taken from RealaryVR https://youtu.be/vmxRjbLhmXM?si=CymQTbh70_v1an7E&t=248
+    public OVRInput.Controller GetController() 
+    { 
+        return m_controller; 
+    }
+
     // You can set this explicitly in the inspector if you're using m_moveHandPosition.
     // Otherwise, you should typically leave this null and simply parent the hand to the hand anchor
     // in your scene, using Unity's inspector.
