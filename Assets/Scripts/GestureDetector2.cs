@@ -1,7 +1,7 @@
 // This code was sourced from Marco Paoloni GestureDetector.cs, https://gitlab.com/tnd-public/tndscripts/-/blob/master/Unity/Scripts/Gesture%20Detectors/GestureDetector.cs?ref_type=heads
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System.Collections;  // System.Collections is used to call the IEnumerator interface
+using System.Collections.Generic;  // System.Collections.Generic is used to call the List class
+using UnityEngine;         // Unity Engine is used to call the Unity API, this is used to call the Unity functions and classes
 using UnityEngine.Events;  // Unity Event System is used to call functions from the inspector without the need of a reference to a script component
 using System;           // System is used to call the Math class
 

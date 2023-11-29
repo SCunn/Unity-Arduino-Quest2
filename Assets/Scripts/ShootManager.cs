@@ -1,5 +1,4 @@
 // Original code sourced from https://youtu.be/TjBIEOFiqoI?si=sFa0mC5nDWqlo0DR&t=416
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,11 +37,11 @@ public class ShootManager : MonoBehaviour
         switch (shootMode) 
         {
             case ShootMode.Automatic:
-                Debug.Log("Shooting in Automatic Mode");
                 if (Time.time >= timeToFire)
                 {
-                    timeToFire = Time.time + 1f / bulletPrefab.GetComponent<Bullet>().fireRate;
+                    timeToFire = Time.time + (1f / bulletPrefab.GetComponent<Bullet>().fireRate);
                     Shoot();
+                    Debug.Log("Shooting in Automatic Mode");
                 }
                 break;
 
@@ -52,7 +51,7 @@ public class ShootManager : MonoBehaviour
                 {
                     hasFired = true;
                     Debug.Log("Shooting in Single Mode");
-                    timeToFire = Time.time + 1f / bulletPrefab.GetComponent<Bullet>().fireRate;
+                    timeToFire = Time.time + (1f / bulletPrefab.GetComponent<Bullet>().fireRate);
                     Shoot();
                 }
                 break;

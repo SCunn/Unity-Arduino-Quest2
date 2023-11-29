@@ -12,10 +12,10 @@ public class Bullet : MonoBehaviour
     public float fireRate = 1f;
     // Bullet lifespan in seconds
     private float bulletLifeSpan = 5f;
-    // Collision Checker
-    private bool hasHit = false;
     // The Rigidbody of the bullet
     private Rigidbody rb = null;
+    // Collision Checker
+    private bool hasHit = false;
 
 
     // Start is called before the first frame update
