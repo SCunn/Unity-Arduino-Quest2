@@ -73,8 +73,12 @@ namespace Oculus.Interaction
         }
 
         private void HandleSelected()
-        {
+        {   //Debug.Log(_whenSelected);  // Try ing to fix the null reference exception error, the error is elsewhere
             _whenSelected.Invoke();
+            //if (_whenSelected != null)
+            //{
+            //    _whenSelected.Invoke();
+            //}
         }
 
         private void HandleUnselected()

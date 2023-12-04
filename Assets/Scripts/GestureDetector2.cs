@@ -3,7 +3,7 @@ using System.Collections;  // System.Collections is used to call the IEnumerator
 using System.Collections.Generic;  // System.Collections.Generic is used to call the List class
 using UnityEngine;         // Unity Engine is used to call the Unity API, this is used to call the Unity functions and classes
 using UnityEngine.Events;  // Unity Event System is used to call functions from the inspector without the need of a reference to a script component
-using System;           // System is used to call the Math class
+
 
 [System.Serializable] // This allows the struct to be shown in the inspector
 
@@ -50,17 +50,31 @@ public class GestureDetector2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Start the DelayRoutine to initialize the gesture after 2.5 seconds
-        StartCoroutine(DelayRoutine(2.5f, Initialize));  
+        //// Start the DelayRoutine to initialize the gesture after 2.5 seconds
+        //StartCoroutine(DelayRoutine(2.5f, Initialize));
+
+        // Start Coroutine to operate the initialization of the gesture functionality outside of the main thread
+        StartCoroutine(UntilInitialized());  
     }
 
     // Create IEnumerator to delay the initialization of the gesture
-    public IEnumerator DelayRoutine(float delay, Action actionToDo)
+
+    //public IEnumerator DelayRoutine(float delay, Action actionToDo)
+    //{
+    //    // Wait for the delay, in this case 2.5 seconds, before invoking the actionToDo
+    //    yield return new WaitForSeconds(delay);
+    //    // Invoke the actionToDo
+    //    actionToDo.Invoke();
+    //}
+
+    public IEnumerator UntilInitialized()
     {
-        // Wait for the delay, in this case 2.5 seconds, before invoking the actionToDo
-        yield return new WaitForSeconds(delay);
-        // Invoke the actionToDo
-        actionToDo.Invoke();
+    // While the OVRBones are not initialized, return a null value, otherwise call Intialize function to begin gesture recognitions
+        while (!skeleton.IsInitialized)
+        {
+            yield return null;
+        }
+        Initialize();
     }
 
     // Create Initialize function to initialize the gesture
@@ -85,7 +99,7 @@ public class GestureDetector2 : MonoBehaviour
         if (debugMode && Input.GetKeyDown(KeyCode.Space))
         {
             //fingerBones = new List<ovrbone>(skeleton.bones);  // fingerbones is set to a new list of ovrbones
-            SetSkeleton(); // Call the SetSkeleton function to set the fingerBones list to the bones of the hand
+            //SetSkeleton(); // Call the SetSkeleton function to set the fingerBones list to the bones of the hand
             Save(); // Call the Save function to save the gesture
         }
 
