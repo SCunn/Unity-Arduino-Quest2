@@ -1,61 +1,38 @@
 // Code sourced from Communicating from Unity 3D to an Arduino (2013). Available at: https://www.youtube.com/watch?v=EMAWe2d7lC0 (Accessed: 20 October 2023).
-using System;
-using System.Collections;
-using System.Collections.Generic;
+// code from link above is outdated and throws a TimeoutException. Code has been updated using Thread(DataThread) to fix this issue.
+// 
+using UnityEngine;
 using System.IO.Ports;
 using System.Threading;
-using UnityEngine;
 
 public class Sending : MonoBehaviour
 {
+    // Create new Thread
+    Thread IOThread = new Thread(DataThread);
     // Initiate Serial Port  connection
-    public static SerialPort sp = new SerialPort("COM4", 9600);
-    public string message2;
-    float timePassed = 0.0f;
+    private static SerialPort sp = new SerialPort("COM4", 9600);
+    private static string message2;
+   //float timePassed = 0.0f;
+
+
+    private static void DataThread()
+    {
+        sp.Open();
+        while (true)
+        {
+            message2 = sp.ReadLine();
+            Thread.Sleep(200);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        OpenConnection();
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {   
-        message2 = sp.ReadLine();
-        print(message2);
-    }
-    public void OpenConnection()
-    {
-        if (sp != null) 
-        {
-            if (sp.IsOpen)
-            {
-                sp.Close();
-                print("Closing port, because it was already open!");
-            }
-            else
-            {
-                sp.Open();
-                sp.ReadTimeout = 16;
-                print("Port Opened!!!!");
-            }
-        }
-        else
-        {
-            if (sp.IsOpen) 
-            {
-                print("Port is already open");
-            }
-            else
-            {
-                print("Port == null");
-            }
-        }
+        IOThread.Start();
     }
 
     void OnApplicationQuit()
     {
+        IOThread.Abort();
         sp.Close();
     }
 
