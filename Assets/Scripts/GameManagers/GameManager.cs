@@ -39,6 +39,7 @@ namespace GameManagers {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 AddScore(10);
+                Debug.Log("Score: " + score);
             }
             // This will update UIManager to Pause game
             if (Input.GetKeyDown(KeyCode.P))
