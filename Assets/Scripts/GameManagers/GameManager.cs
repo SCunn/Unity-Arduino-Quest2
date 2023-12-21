@@ -57,7 +57,7 @@ namespace GameManagers {
         {
             score += points;
             uiManager.UpdateScoreDisplay(score);
-            AudioManager.Instance.PlaySoundEffect("PointScored");
+            //AudioManager.Instance.PlaySoundEffect("PointScored");
         }
 
         public void ResetScore()
