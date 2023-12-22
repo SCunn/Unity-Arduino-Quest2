@@ -14,9 +14,15 @@ public class ShootManager : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     public float speed = 50f;
 
+    [Header("Partical Effect")]
+    public GameObject muzzleFlash;
+
+    public AudioClip audioClip;
+
     //[Header("Aiming Helper")]
     //public Transform gunTip;
     //public Transform circle;
+
 
     // Enum to determine the shoot mode of the bullet.  Enums are a special type of class that represents a group of constants
     public enum ShootMode
@@ -84,6 +90,8 @@ public class ShootManager : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, hand.position, Quaternion.identity);
         bullet.transform.localRotation = hand.rotation;
         bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * speed * 2f); //Set the speed of the projectile by applying force to the rigidbody
+        Instantiate(muzzleFlash, hand.position, hand.rotation); // Instantiate the muzzle flash particle effect
+        AudioSource.PlayClipAtPoint(audioClip, transform.position);
         //hasFired = false; // Reset hasFired to false after shooting
     }
 

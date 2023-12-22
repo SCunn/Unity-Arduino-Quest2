@@ -145,7 +145,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7124730108520404319}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -255,4 +255,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   fireRate: 1
-  bulletLifeSpan: 5
+  bloodFX: {fileID: 847940666380475757, guid: d190a483bee24474692340b3a6f6001c, type: 3}
