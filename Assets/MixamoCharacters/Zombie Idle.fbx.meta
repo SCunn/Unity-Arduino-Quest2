@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 32aa0736c160adb4aba053c7f19dff4a
+guid: f8100293041bcc144b3373f6b1f1bf85
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -18,22 +18,22 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: parasiteZombie_body_diffuse
-    second: {fileID: 2800000, guid: 05a2cc95607f94a4785f010a99aa4c0f, type: 3}
+    second: {fileID: 2800000, guid: 4754a203591bb8e4d80965245580281e, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: parasiteZombie_diffuse
-    second: {fileID: 2800000, guid: 460e49558e625354c8e87c36557b82ab, type: 3}
+    second: {fileID: 2800000, guid: 9a981214b2d1189489bd56181a3a16d1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: parasiteZombie_normal
-    second: {fileID: 2800000, guid: 58940089c066fe3428238a98102b3d6b, type: 3}
+    second: {fileID: 2800000, guid: 41df2dffa9fa317429362aa25e3b7e45, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: parasiteZombie_specular
-    second: {fileID: 2800000, guid: 739c1f82cc7ed764fb9797a03d78a41c, type: 3}
+    second: {fileID: 2800000, guid: d6f030b42394de24a809302a6bd0f498, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -61,7 +61,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
